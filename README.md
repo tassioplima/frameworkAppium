@@ -1,4 +1,4 @@
-# framewrokAppium
+# frameworkAppium
 Criação de framework Mobile usando linguagem java - BETA
 
 Specs:
