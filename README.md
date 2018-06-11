@@ -1,15 +1,15 @@
 # frameworkAppium
-Criação de framework Mobile usando linguagem java - BETA
+Criação de framework Mobile usando linguagem java - Em construção
 
 Specs:
 
-Usando framework de teste jUnit, controle de versionamento github, gerenciador de repositório maven, framework automação Appium (Appium server para inspeção de elementos) com linguagem Java, IDE eclipse Neon.
+Usando framework de teste <b>jUnit (4.12)</b>, controle de versionamento github, gerenciador de dependência maven, framework automação Appium com linguagem Java, IDE eclipse Neon.
 
 Requisitos:
 
 node.js: https://nodejs.org/en/download/
 
-instalação do appium via npm inicialize o <b>node.js command prompt</b> c: npm install -g appium@1.7.2
+instalação do appium via npm inicialize o <b>node.js command prompt:</b> npm install -g appium@1.7.2
 
 
 Dependências:
