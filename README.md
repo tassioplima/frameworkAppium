@@ -1,5 +1,5 @@
 # frameworkAppium
-Criação de framework Mobile usando linguagem java - Em construção
+Framework Mobile usando linguagem java - Em construção
 
 Specs:
 
