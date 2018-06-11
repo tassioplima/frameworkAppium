@@ -14,7 +14,7 @@ instalação do appium via npm: npm i appium
 
 Dependências:
 
-<dependency>
+		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>3.12.0</version>
