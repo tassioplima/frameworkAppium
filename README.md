@@ -9,7 +9,7 @@ Requisitos:
 
 node.js: https://nodejs.org/en/download/
 
-instalação do appium via npm: npm i appium
+instalação do appium via npm: npm install -g appium@1.7.2
 
 
 Dependências:
