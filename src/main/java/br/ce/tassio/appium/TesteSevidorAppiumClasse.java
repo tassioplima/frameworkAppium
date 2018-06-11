@@ -5,17 +5,15 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
-public class TesteSevidorAppiumCLasse {
+public class TesteSevidorAppiumClasse {
 
 	public static void main(String[] args) throws InterruptedException, MalformedURLException {
 		
@@ -25,10 +23,10 @@ public class TesteSevidorAppiumCLasse {
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
 	    //cap.setCapability("deviceName", "emulator-5554");
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
-	   // cap.setCapability("automationName", "uiautomator2");
+	    //cap.setCapability("automationName", "uiautomator2");
 		cap.setCapability(MobileCapabilityType.FULL_RESET, true);
 		cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
-	    cap.setCapability(MobileCapabilityType.APP, "C:\\Users\\Tassio\\Documents\\Trabalhos e Projetos\\Java\\frameworkAppium\\resources\\CTAppium-1-1.apk");
+	    cap.setCapability(MobileCapabilityType.APP, ".\\resources\\CTAppium-1-1.apk");
 	    
 		
 		
