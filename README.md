@@ -5,14 +5,14 @@ Specs:
 
 Usando framework de teste <b>jUnit (4.12)</b>, controle de versionamento github, gerenciador de dependência maven, framework automação Appium com linguagem Java, IDE eclipse Neon.
 
-Requisitos:
+<h1>Requisitos:</h1>
 
 node.js: https://nodejs.org/en/download/
 
 instalação do appium via npm inicialize o <b>node.js command prompt:</b> npm install -g appium@1.7.2
 
 
-Dependências:
+<h1>Dependências:</h1>
 
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
