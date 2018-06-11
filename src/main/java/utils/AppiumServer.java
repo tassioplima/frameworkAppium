@@ -1,8 +1,8 @@
-package br.ce.tassio.appium;
+package utils;
 
-import java.util.concurrent.TimeUnit;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.MobileElement;
@@ -11,37 +11,46 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
-public class TesteSevidorAppiumClasse {
-	
-	private static DesiredCapabilities cap;
+public class AppiumServer {
 
-	public static void main(String[] args) throws InterruptedException {
-		
+	private static DesiredCapabilities  cap;
+
+	public AppiumServiceBuilder builder;
+
+	public AppiumDriverLocalService service;
+
+	protected AndroidDriver<MobileElement> driver;
+
+	public AppiumServer() {
+		super();
+		this.driver = new AndroidDriver<MobileElement>(cap);
 		cap = new DesiredCapabilities();
+		builder = new AppiumServiceBuilder().withCapabilities(cap);
+
+	}
+
+
+	public void startServer() {
+
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 		cap.setCapability(MobileCapabilityType.FULL_RESET, true);
 		cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
-	    cap.setCapability(MobileCapabilityType.APP, ".\\resources\\CTAppium-1-1.apk");
-	    
-		
-		
-		AppiumServiceBuilder builder = new AppiumServiceBuilder().withCapabilities(cap);
-		
-		AppiumDriverLocalService service = builder.build();
-		
+		cap.setCapability(MobileCapabilityType.APP, ".\\resources\\CTAppium-1-1.apk");
+
+
+		service = builder.build();
+
 		service.start();
-		
-		 AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(cap);
-		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
-		
-		driver.findElement(By.xpath("//*[@text='Formulário']")).click();
-		
-		Thread.sleep(300);
-		
-		service.stop();
-	
+
 	}
+
+	public void stopServer() {
+
+		service.stop();
+	}
+
+
+
 }

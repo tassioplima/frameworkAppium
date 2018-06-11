@@ -9,7 +9,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class Page {
 	
-	protected AndroidDriver<MobileElement> driver;
+	public AndroidDriver<MobileElement> driver;
 	
 	public Page(AndroidDriver<MobileElement> driver) {
 		super();
@@ -25,13 +25,6 @@ public class Page {
 
 	}
 	
-	/*public MobileElement getElementList (String xpath) {
-		
-		List<MobileElement> elements = (List<MobileElement>) driver.findElements(By.xpath(xpath));
-		
-		return (MobileElement) elements;
-		
-		
-	}*/
+	
 	
 }
