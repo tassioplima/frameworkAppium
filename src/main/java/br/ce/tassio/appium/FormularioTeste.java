@@ -37,7 +37,7 @@ public class FormularioTeste  {
 			    desiredCapabilities.setCapability("platformName", "Android");
 			    desiredCapabilities.setCapability("deviceName", "emulator-5554");
 			    desiredCapabilities.setCapability("automationName", "uiautomator2");
-			    desiredCapabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\Tassio\\Documents\\Trabalhos e Projetos\\Java\\frameworkAppium\\resources\\CTAppium-1-1.apk");
+			    desiredCapabilities.setCapability(MobileCapabilityType.APP, ".\\resources\\CTAppium-1-1.apk");
 			    
 			    
 				

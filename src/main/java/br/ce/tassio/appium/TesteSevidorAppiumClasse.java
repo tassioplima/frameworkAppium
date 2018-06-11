@@ -14,16 +14,14 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
 public class TesteSevidorAppiumClasse {
+	
 
 	public static void main(String[] args) throws InterruptedException, MalformedURLException {
 		
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		//cap.setCapability("platformName", "Android");
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
-	    //cap.setCapability("deviceName", "emulator-5554");
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
-	    //cap.setCapability("automationName", "uiautomator2");
 		cap.setCapability(MobileCapabilityType.FULL_RESET, true);
 		cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
 	    cap.setCapability(MobileCapabilityType.APP, ".\\resources\\CTAppium-1-1.apk");
@@ -36,8 +34,10 @@ public class TesteSevidorAppiumClasse {
 		
 		service.start();
 		
-		AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		 AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		
 		driver.findElement(By.xpath("//*[@text='Formulário']")).click();
 		
 		Thread.sleep(300);
