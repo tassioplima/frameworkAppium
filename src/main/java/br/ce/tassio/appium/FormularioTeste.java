@@ -6,12 +6,19 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import utils.AppiumServer;
 
 
-public class FormularioTeste  extends AppiumServer {
+public class FormularioTeste extends Page  {
 
-	private AppiumServer appium ;
+
+	public FormularioTeste(AndroidDriver driver) {
+		super(driver);
+	}
+
+	AppiumServer appium = new AppiumServer();
 
 	@Before
 	public void inicitalServer() {
@@ -23,7 +30,7 @@ public class FormularioTeste  extends AppiumServer {
 	@Test
 	public void desafioCadastro() throws MalformedURLException{
 
-		//getElement("//*[@text='Formulário']").click();
+		getElement("//*[@text='Formulário']").click();
 
 	}
 
