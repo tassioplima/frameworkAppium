@@ -5,6 +5,7 @@ import java.net.ServerSocket;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
@@ -18,17 +19,22 @@ public class AppiumServerJava {
 	public AppiumServerJava() {
 		cap = new DesiredCapabilities();
 		builder = new AppiumServiceBuilder();
-		service = AppiumDriverLocalService.buildService(builder);	
 	}
 	
 	
 	public void startServer() {
+		
+		String ip = "127.0.0.1";
+		int port = 4723;
 		//Set Capabilities
 		cap.setCapability("noReset", "false");
-		
+		cap.setCapability("platformName", "Android");
+	    cap.setCapability("deviceName", "emulator-5554");
+	    cap.setCapability("automationName", "uiautomator2");
+	    cap.setCapability(MobileCapabilityType.APP, "C:\\Users\\Tassio\\Documents\\Trabalhos e Projetos\\Java\\frameworkAppium\\resources\\CTAppium-1-1.apk");
+	    
+	    
 		//Build the Appium service
-		String ip = "127.0.0.3";
-		int port = 4723;
 		builder.withIPAddress(ip);
 		builder.usingPort(port);
 		builder.withCapabilities(cap);
@@ -36,6 +42,7 @@ public class AppiumServerJava {
 		builder.withArgument(GeneralServerFlag.LOG_LEVEL,"error");
 		
 		//Start the server with the builder
+		service =  AppiumDriverLocalService.buildService(builder);	
 		service.start();
 	}
 	
@@ -59,15 +66,14 @@ public class AppiumServerJava {
 		return isServerRunning;
 	}	
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		AppiumServerJava appiumServer = new AppiumServerJava();
 		
-		int port = 4723;
-		if(!appiumServer.checkIfServerIsRunnning(port)) {
+		
 			appiumServer.startServer();
+			Thread.sleep(100);
 			appiumServer.stopServer();
-		} else {
-			System.out.println("Appium Server already running on Port - " + port);
-		}
+	
+		
 	}
 }
