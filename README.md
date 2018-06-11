@@ -9,7 +9,7 @@ Requisitos:
 
 node.js: https://nodejs.org/en/download/
 
-instalação do appium via npm inicialize o <b>node.js command prompt<\b> c: npm install -g appium@1.7.2
+instalação do appium via npm inicialize o <b>node.js command prompt</b> c: npm install -g appium@1.7.2
 
 
 Dependências:
