@@ -1,4 +1,4 @@
-package br.ce.tassio.appium;
+package server;
 
 import java.util.concurrent.TimeUnit;
 

@@ -17,12 +17,14 @@ public class AppiumServer {
 	public void startServer() {
 
 		cap = new DesiredCapabilities();
+		
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 		cap.setCapability(MobileCapabilityType.FULL_RESET, true);
 		cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
 		cap.setCapability(MobileCapabilityType.APP, ".\\resources\\CTAppium-1-1.apk");
+		
 
 		builder = new AppiumServiceBuilder().withCapabilities(cap);
 
@@ -36,7 +38,9 @@ public class AppiumServer {
 
 		service.stop();
 	}
-
-
+	
+	
+	
+	
 
 }
