@@ -12,6 +12,27 @@ node.js: https://nodejs.org/en/download/
 instalação do appium via npm inicialize o <b>node.js command prompt:</b> npm install -g appium@1.7.2
 
 
+
+
+<h3>Capabilities: </h3>
+
+Capabilities do appium para execução
+
+	private static void createDriver() {
+
+		DesiredCapabilities cap = new DesiredCapabilities();
+		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
+		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
+		cap.setCapability(MobileCapabilityType.FULL_RESET, true);
+		cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
+		cap.setCapability(MobileCapabilityType.APP, ".\\resources\\CTAppium-1-1.apk");
+
+		driver = new AndroidDriver<MobileElement>(cap);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+	}
+
 <h3>Dependências:</h3>
 
 		<dependency>
