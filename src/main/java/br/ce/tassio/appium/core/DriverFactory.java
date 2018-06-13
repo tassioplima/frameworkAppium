@@ -26,7 +26,7 @@ public class DriverFactory {
 		
 		Scanner scanner = null;
 		try {
-			scanner = new Scanner(Runtime.getRuntime().exec(new String[] { "cmd.exe","/c","start", "adb get-serialno"})
+			scanner = new Scanner(Runtime.getRuntime().exec(new String[] { "cmd.exe","/c", "adb get-serialno"})
 					.getInputStream());
 		} catch (IOException e) {
 			

@@ -1,14 +1,12 @@
 package utils;
 
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
 
 public class AppServer {
@@ -43,17 +41,17 @@ public class AppServer {
 	 */
 	private DesiredCapabilities getCapabilities(String appPackage) throws IOException {
 
-		Scanner scanner = null;
+		/*Scanner scanner = null;
 		scanner = new Scanner(Runtime.getRuntime().exec(new String[] { "/bin/bash", "-l", "-c", "adb get-serialno" })
 				.getInputStream());
 		String deviceSerialNumber = (scanner != null && scanner.hasNext()) ? scanner.next() : "";
-		scanner.close();
+		scanner.close();*/
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("deviceName", "Device");
 		capabilities.setCapability("platformName", MobilePlatform.ANDROID);
 		capabilities.setCapability("device", "Android");
-		capabilities.setCapability("udid", deviceSerialNumber);
+		capabilities.setCapability("udid", "emulator-5554");
 		//capabilities.setCapability(MobileCapabilityType.APP, value);
 		//capabilities.setCapability("appPackage", appPackage);
 		//capabilities.setCapability("appActivity", "MainActivity_");
