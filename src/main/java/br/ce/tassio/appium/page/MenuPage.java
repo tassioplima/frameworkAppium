@@ -2,15 +2,14 @@ package br.ce.tassio.appium.page;
 
 import org.openqa.selenium.By;
 
-import br.ce.tassio.appium.core.DSL;
+import br.ce.tassio.appium.core.BasePage;
 
-public class MenuPage {
+public class MenuPage extends BasePage {
 	
-	private DSL dsl = new DSL();
 	
 	public void acessarFormulario() {
 		
-		dsl.clickElement(By.xpath("//*[@text='Formulário']"));
+		clickElement(By.xpath("//*[@text='Formulário']"));
 	}
 
 }
