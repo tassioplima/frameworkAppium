@@ -11,9 +11,7 @@ import br.ce.tassio.appium.core.BaseTest;
 import br.ce.tassio.appium.page.FormularioPage;
 import br.ce.tassio.appium.page.MenuPage;
 
-
 public class FormularioTeste extends BaseTest {
-	
 	
 	private MenuPage menu = new MenuPage();
 	private FormularioPage formulario = new FormularioPage();
@@ -24,9 +22,6 @@ public class FormularioTeste extends BaseTest {
 		menu.acessarFormulario();
 		
 	}
-
-
-
 
 	@Test
 	public void desafioCadastro() throws MalformedURLException{
@@ -58,7 +53,15 @@ public class FormularioTeste extends BaseTest {
 		formulario.clearData();
 		
 	}
-
 	
+	@Test
+	public void validaNome() {
+		
+		formulario.writeName("nome", "José Pedro");
+		formulario.saveData();
+		String retornoNome = formulario.returnTextName();
+		
+		assertEquals("Nome: José Pedro", retornoNome);
+	}	
 	
 }
