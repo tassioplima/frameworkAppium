@@ -4,6 +4,8 @@ import static br.ce.tassio.appium.core.DriverFactory.getDriver;
 
 import org.openqa.selenium.By;
 
+import io.appium.java_client.MobileElement;
+
 public class DSL {
 
 	public void writeElement(By by, String texto) {
@@ -23,7 +25,7 @@ public class DSL {
 	}
 	
 	public void clickText(String texto) {
-		getDriver().findElement(By.xpath("//*[@text='"+texto+"']")).click();
+		getDriver().findElement(By.xpath("//*[contains(@text,'"+texto+"')]")).click();
 		
 	}
 	
@@ -33,11 +35,24 @@ public class DSL {
 	}
 	
 	
-	public void getElement(String xpath) {
+	public MobileElement getElement(String xpath) {
 		
-		getDriver().findElement(By.xpath(xpath));
+		return getDriver().findElement(By.xpath(xpath));
 		
 	}
+	
+	public boolean isCheckedMarked(By by) {
+		
+		return getDriver().findElement(by).getAttribute("checked").equals("true");
+		
+	}
+	
+	public boolean isCheckedUnMakerd(By by) {
+		
+		return getDriver().findElement(by).getAttribute("checked").equals(false);
+		
+	}
+
 	
 	
 }

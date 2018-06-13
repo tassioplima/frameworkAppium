@@ -1,4 +1,4 @@
-package br.com.userede.fv.mobile.bean.enums;
+package utils;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -7,36 +7,12 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import br.com.userede.fv.mobile.bean.interfaces.MobileApplication;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
 
-/**
- * 
- * @author Filipe Mapelli Siqueira
- * @since 2018-02-08
- *
- */
-public enum App implements MobileApplication{
-
-	COCKPIT {
-
-		@Override
-		public AndroidDriver<WebElement> getDriver() {
-			return getDriver("br.com.userede.cockpit");
-		}
-
-	},
-
-	ACELERA {
-
-		@Override
-		public AndroidDriver<WebElement> getDriver() {
-			return getDriver("br.com.userede.acelera");
-		}
-
-	};
-
+public class AppServer {
+	
 	private AndroidDriver<WebElement> driver;
 
 	/**
@@ -70,16 +46,17 @@ public enum App implements MobileApplication{
 		Scanner scanner = null;
 		scanner = new Scanner(Runtime.getRuntime().exec(new String[] { "/bin/bash", "-l", "-c", "adb get-serialno" })
 				.getInputStream());
-		String deviceSerialNumver = (scanner != null && scanner.hasNext()) ? scanner.next() : "";
+		String deviceSerialNumber = (scanner != null && scanner.hasNext()) ? scanner.next() : "";
 		scanner.close();
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("deviceName", "Galaxy");
+		capabilities.setCapability("deviceName", "Device");
 		capabilities.setCapability("platformName", MobilePlatform.ANDROID);
 		capabilities.setCapability("device", "Android");
-		capabilities.setCapability("udid", deviceSerialNumver);
-		capabilities.setCapability("appPackage", appPackage);
-		capabilities.setCapability("appActivity", "MainActivity_");
+		capabilities.setCapability("udid", deviceSerialNumber);
+		//capabilities.setCapability(MobileCapabilityType.APP, value);
+		//capabilities.setCapability("appPackage", appPackage);
+		//capabilities.setCapability("appActivity", "MainActivity_");
 
 		return capabilities;
 
