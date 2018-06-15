@@ -12,7 +12,20 @@ node.js: https://nodejs.org/en/download/
 instalação do appium via npm inicialize o <b>node.js command prompt:</b> npm install -g appium@1.7.2
 
 
+<h3>Customizações </h3>
 
+Procuro um serial number de celular no adb (Windows):
+
+	Scanner scanner = null;
+		try {
+			scanner = new Scanner(Runtime.getRuntime().exec(new String[] { "cmd.exe","/c", "adb get-serialno"})
+					.getInputStream());
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		String deviceSerialNumber = (scanner != null && scanner.hasNext()) ? scanner.next() : "";
+		scanner.close();
 
 <h3>Capabilities: </h3>
 
