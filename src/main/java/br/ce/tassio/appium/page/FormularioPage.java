@@ -76,6 +76,10 @@ public class FormularioPage extends BasePage {
 		return getElement("//android.widget.TextView[@index='18']").getText();
 		
 	}
+	
+	public WebElement slowSave() {
+		return getElement("//android.widget.TextView[@text='SALVAR DEMORADO']");
+	}
 
 }
 

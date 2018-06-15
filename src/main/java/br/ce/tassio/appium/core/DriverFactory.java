@@ -41,7 +41,7 @@ public class DriverFactory {
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 		cap.setCapability(MobileCapabilityType.FULL_RESET, true);
 		cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
-		cap.setCapability(MobileCapabilityType.APP, ".\\resources\\CTAppium-1-1.apk");
+		cap.setCapability(MobileCapabilityType.APP, ".\\resources\\CTAppium.apk");
 
 		driver = new AndroidDriver<MobileElement>(cap);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -57,18 +57,6 @@ public class DriverFactory {
 		}
 	}
 	
-	
-	private String returnDeviceName() {
-		Scanner scanner = null;
-		try {
-			scanner = new Scanner(Runtime.getRuntime().exec(new String[] { "cmd /c dir", "adb get-serialno" })
-					.getInputStream());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		String deviceSerialNumber = (scanner != null && scanner.hasNext()) ? scanner.next() : "";
-		scanner.close();
-		return deviceSerialNumber;
-	}
+
 
 }

@@ -2,11 +2,17 @@ package br.ce.tassio.appium.core;
 
 import static br.ce.tassio.appium.core.DriverFactory.getDriver;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 
 import io.appium.java_client.MobileElement;
 
 public class BasePage {
+	
+	public BasePage () {
+		
+	}
 	
 	public void writeElement(By by, String texto) {
 		
@@ -51,6 +57,14 @@ public class BasePage {
 	public boolean isCheckedUnMakerd(By by) {
 		
 		return getDriver().findElement(by).getAttribute("checked").equals(false);
+		
+	}
+	
+	public boolean elementIsVisible(String texto) {
+		
+		List<MobileElement> findElements = getDriver().findElements(By.xpath("//*[@text='"+texto+"']"));
+		return findElements.size() > 0;
+		
 		
 	}
 

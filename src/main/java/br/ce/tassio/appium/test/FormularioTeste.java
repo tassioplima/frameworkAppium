@@ -19,7 +19,8 @@ public class FormularioTeste extends BaseTest {
 	@Before
 	public void inicializarAppium() {
 
-		menu.acessarFormulario();
+		menu.getAcessarFormularioFactory().click();
+		//menu.acessarFormulario();
 		
 	}
 
@@ -59,6 +60,16 @@ public class FormularioTeste extends BaseTest {
 		
 		formulario.writeName("nome", "José Pedro");
 		formulario.saveData();
+		String retornoNome = formulario.returnTextName();
+		
+		assertEquals("Nome: José Pedro", retornoNome);
+	}
+	@Test
+	public void validaNomeDemorado() {
+		
+		formulario.writeName("nome", "José Pedro");
+		formulario.slowSave().click();;
+		
 		String retornoNome = formulario.returnTextName();
 		
 		assertEquals("Nome: José Pedro", retornoNome);
